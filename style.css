@@ -156,6 +156,13 @@
     transform: scale(1.05);
 }
 
+.btn-numbers-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
 .modal-overlay-confirm, .modal-overlay-list, .modal-overlay-numbers {
     position: fixed;
     top: 0;
@@ -206,7 +213,6 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 30vh;
     max-width: 620px;
     text-align: center;
     display: grid;
@@ -236,6 +242,8 @@
     font-size: 10px;
     color: red;
 }
+
+/* cartela */
 
 .container-numbers {
     max-width: 620px;
@@ -281,3 +289,8 @@ h2 {
     background-color: #007bff;
     color: #fff;
   }
+
+.selecionado {
+    background-color: #28a754 !important;
+    color: #fff;
+}

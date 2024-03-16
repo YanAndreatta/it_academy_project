@@ -1,6 +1,6 @@
 import { validaCPF } from "./valida-cpf.js";
 
-export class ValidaFormulario {
+export default class ValidaFormulario {
     constructor() {
         this.formulario = document.querySelector(".form");
         this.eventos();
@@ -41,8 +41,9 @@ export class ValidaFormulario {
                 if(!this.validaNumbers(campo)) valid = false;
             }
 
-        }   
+        }
 
+        return valid;   
     }
 
     validaCPF(campo) {

@@ -1,21 +1,19 @@
-import { validaCPF } from "./valida-cpf.js";
-import { ValidaFormulario } from "./valida-campos.js";
+import  ValidaFormulario from "./valida-campos.js";
+import { salvarAposta, generateNumbers } from "./salvar-aposta.js";
+import removeNumbers from "./remove-numbers.js";
 
-const valida = new ValidaFormulario();
-
-// seleciona os buttons
+// Seleciona os buttons da tela inicial
 const modalBtnRegister = document.querySelector(".register-btn");
 const modalBtnList = document.querySelector(".list-btn");
 const modalBtnNumbers = document.querySelector(".numbers-btn");
+
+// Seleciona os buttons das modais
+const registerBtnNumbersBet = document.querySelector(".register-numbers"); 
 
 // Seleciona as modais
 const modalOverlayConfirm = document.querySelector(".modal-overlay-confirm");
 const modalOverlayList = document.querySelector(".modal-overlay-list");
 const modalOverlayNumber = document.querySelector(".modal-overlay-numbers");
-
-// Seleciona os inputs
-const nameInput = document.querySelector(".name");
-const cpfInput = document.querySelector(".cpf");
 
 // Seleciona o button de fechar modal
 const closeBtnConfirm = document.querySelector(".close-btn-confirm");
@@ -34,15 +32,29 @@ modalBtnList.addEventListener("click", () => {
 
 // Verifica se o botão "Números da sorte" foi apertado
 modalBtnNumbers.addEventListener("click", (e) => {
-    modalOverlayNumber.classList.add("open-modal");
+    const valida = new ValidaFormulario();
+    if(valida.isValid()){
+        modalOverlayNumber.classList.add("open-modal");
+        generateNumbers();
+    } else {
+        alert("Você deve inserir um nome e um CPF válido para apostar");
+    }
 });
 
-// Botão para fechar o modal
+// Verifica se o botão da modal NÚMEROS DA SORTE foi apertado 
+registerBtnNumbersBet.addEventListener("click", () => {
+    if(!salvarAposta) {
+        removeNumbers;
+    } else {
+        salvarAposta();
+    }
+});
+
+// Botões para fechar o modal
 closeBtnConfirm.addEventListener("click", (e) => {
     e.preventDefault();
     modalOverlayConfirm.classList.remove("open-modal");
 });
-
 closeBtnList.addEventListener("click", (e) => {
     e.preventDefault();
     modalOverlayList.classList.remove("open-modal");
@@ -51,17 +63,8 @@ closeBtnList.addEventListener("click", (e) => {
 closeBtnNumbers.addEventListener("click", (e) => {
     e.preventDefault();
     modalOverlayNumber.classList.remove("open-modal");
+
+    // remove os números da cartela quando o modal é fechado
+    removeNumbers();
+
 });
-
-
-// Função para gerar os números da sorte
-function generateNumbers() {
-    const numerosContainer = document.getElementById("numbers");
-
-    for(let i = 1; i <= 50; i++) {
-        const numeroDiv = document.createElement("div");
-        numeroDiv.className.add("number");
-        numeroDiv.textContent = i;
-        numerosContainer.appendChild(numeroDiv);
-    }
-}
