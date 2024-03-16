@@ -127,15 +127,6 @@
     outline: none;
 }
 
-#forgot_password a {
-    text-decoration: none;
-    font-size: 12px;
-    color: var(--color-dark-50);
-}
-
-#forgot_password a:hover {
-    color: var(--color-purple-50);
-}
 
 #btn-form {
     border: none;
@@ -165,21 +156,7 @@
     transform: scale(1.05);
 }
 
-.modal-overlay-confirm {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(73, 166, 233, 0.5);
-    display: grid;
-    place-items: center;
-    transform: all 0.3s linear;
-    visibility: hidden;
-    z-index: -10;
-}
-
-.modal-overlay-list {
+.modal-overlay-confirm, .modal-overlay-list, .modal-overlay-numbers {
     position: fixed;
     top: 0;
     left: 0;
@@ -213,23 +190,6 @@
     position: relative;
 }
 
-.close-btn-confirm, .close-btn-list {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    background: transparent;
-    border-color: transparent;
-    color: hsl(360, 67%, 44%);
-    cursor: pointer;
-    transform: all 0.3s linear;
-}
-
-.close-btn-confirm:hover, .close-btn-list:hover {
-    color: hsl(360, 71%, 66%);
-    transform: scale(1.3s);
-}
-
 .modal-container-list {
     background: #fff;
     border-radius: 0.5rem;
@@ -242,7 +202,82 @@
     position: relative;
 }
 
+.modal-container-numbers {
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 90vw;
+    height: 30vh;
+    max-width: 620px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.close-btn-confirm, .close-btn-list, .close-btn-numbers {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: hsl(360, 67%, 44%);
+    cursor: pointer;
+    transform: all 0.3s linear;
+}
+
+.close-btn-confirm:hover, .close-btn-list:hover, .close-btn-list:hover {
+    color: hsl(360, 71%, 66%);
+    transform: scale(1.3s);
+}
+
+
 .error-text {
     font-size: 10px;
     color: red;
 }
+
+.container-numbers {
+    max-width: 620px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 7px;
+    justify-content: center;
+}
+
+
+.number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ajuste na largura */
+    height: 50px; /* Ajuste na altura */
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 20px; /* Tamanho da fonte reduzido */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.number:hover {
+    background-color: #007bff;
+    color: #fff;
+  }

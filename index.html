@@ -13,7 +13,7 @@
         <form action="/" method="POST" id="form" class="form">
 
             <div id="form_header">
-                <h1>SUPER SORTEIÃO</h1>
+                <h1>SORTEIÃOdosGU</h1>
             </div>
 
             <div id="inputs">
@@ -39,16 +39,6 @@
                         </div>
                 </div>
 
-                <!-- input numbers  -->
-                <div class="input-box">
-                    <div class="input-field">
-                        <label for="text">
-                            Números
-                        </label>
-                        <input type="text" id="numbers" name="numbers" class="validar">
-                    </div>
-                </div>
-
             </div>
             <!-- Inputs end -->
 
@@ -56,13 +46,13 @@
             <!-- buttons -->
 
             <!-- button register bet -->
-            <button type="submit" class="register-btn" id="btn-form">
-                Registrar aposta
+
+            <button type="button" class="numbers-btn" id="btn-form">
+                Números da sorte
             </button>
 
-            <!-- button "surpresinha" -->
-            <button type="button" class="surprise-btn" id="btn-form">
-                Surpresinha
+            <button type="submit" class="register-btn" id="btn-form">
+                Registrar aposta
             </button>
 
             <!-- button lista apostas -->
@@ -101,9 +91,6 @@
                 <div class="modal-container-list">
                     
                     <h1> Lista de apostas </h1>
-                    <div class="teste">
-                        
-                    </div>
 
                     <button class="close-btn-list">
                         <i class="fas fa-times"></i>
@@ -111,6 +98,29 @@
                 </div>
             </div>
             <!-- end modal list -->
+            
+            <!-- modal numbers -->
+            <div class="modal-overlay-numbers" id="modal-overlay">
+                <div class="modal-container-numbers">
+
+                    <h2>aqui vai os NUMBERS</h2>
+                    <div class="container-numbers">
+                        <div class="numbers" id="numbers">
+                            <!-- numbers here -->
+                        </div>
+                    </div>
+                    <!-- button "surpresinha" -->
+
+                    <button type="button" class="surprise-btn" id="btn-form">
+                         Surpresinha
+                    </button>
+
+                    <button class="close-btn-numbers">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- end modal numbers -->
 
         </form>
     </main>
