@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Academy Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="container">
+
+        <form action="/" method="POST" id="form" class="form">
+
+            <div id="form_header">
+                <h1>SUPER SORTEIÃO</h1>
+            </div>
+
+            <div id="inputs">
+                <!-- Inputs Start -->
+
+                <!-- input Nome -->
+                <div class="input-box">
+                        <div class="input-field">
+                            <label for="text">
+                                Nome
+                            </label>
+                            <input type="text" id="name" name="name" class="validar">
+                        </div>
+                </div>
+
+                <!-- input CPF -->
+                <div class="input-box">
+                        <div class="input-field">
+                            <label for="text">
+                                CPF
+                            </label>
+                            <input type="text" id="cpf" name="cpf" class="validar cpf">
+                        </div>
+                </div>
+
+                <!-- input numbers  -->
+                <div class="input-box">
+                    <div class="input-field">
+                        <label for="text">
+                            Números
+                        </label>
+                        <input type="text" id="numbers" name="numbers" class="validar">
+                    </div>
+                </div>
+
+            </div>
+            <!-- Inputs end -->
+
+
+            <!-- buttons -->
+
+            <!-- button register bet -->
+            <button type="submit" class="register-btn" id="btn-form">
+                Registrar aposta
+            </button>
+
+            <!-- button "surpresinha" -->
+            <button type="button" class="surprise-btn" id="btn-form">
+                Surpresinha
+            </button>
+
+            <!-- button lista apostas -->
+            <button type="button" class="list-btn" id="btn-form">
+                Lista apostas
+            </button>
+
+            <!-- end buttons -->
+
+
+            <!-- modal confirmation -->
+            <div class="modal-overlay-confirm" id="modal-overlay">
+                <div class="modal-container-confirm">
+
+                    <!-- button another bet -->
+                    <button type="submit" class="modal-btn-confirm" id="modal-btn">
+                        Realizar outra aposta
+                    </button>
+
+                    <!-- button finish bets -->
+                    <button type="submit" class="modal-btn-finish" id="modal-btn">
+                        Finalizar 
+                    </button>
+
+                    <!-- close btn -->
+                    <button class="close-btn-confirm">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- end modal  confirmation -->            
+            
+
+            <!-- modal list -->
+            <div class="modal-overlay-list" id="modal-overlay">
+                <div class="modal-container-list">
+                    
+                    <h1> Lista de apostas </h1>
+                    <div class="teste">
+                        
+                    </div>
+
+                    <button class="close-btn-list">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- end modal list -->
+
+        </form>
+    </main>
+
+    <!-- javascript -->
+    <script src="app.js" type="module"></script>
+</body>
+</html>
