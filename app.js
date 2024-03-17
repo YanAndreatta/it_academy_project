@@ -1,6 +1,7 @@
 import  ValidaFormulario from "./valida-campos.js";
 import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
 import removeNumbers from "./remove-numbers.js";
+import exibirDados from "./exibir-dados.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -30,7 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Verifica se o botão "Lista apostas" foi apertado
     modalBtnList.addEventListener("click", () => {
-        modalOverlayList.classList.add("open-modal");
+        let dadosaArmazenados = localStorage.getItem('apostadores');
+        
+        if(dadosaArmazenados) {
+            modalOverlayList.classList.add("open-modal");
+            let dados = JSON.parse(dadosaArmazenados);
+            exibirDados(dados); 
+        } else {
+            alert('Não existem apostas');
+        }
+
     });
     
     // Verifica se o botão "Números da sorte" foi apertado
@@ -54,10 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
         NumeroRandom();
         salvarAposta();
     });
+
     
     // **** Botões para fechar o modal ****
-
-
     closeBtnList.addEventListener("click", (e) => {
         e.preventDefault();
         modalOverlayList.classList.remove("open-modal");

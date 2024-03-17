@@ -62,43 +62,16 @@
     border-radius: 5px;
 }
 
-#mode_icon {
-    cursor: pointer;
-    font-size: 20px;
-}
-
-#social_media {
-    display: flex;
-    align-items: left;
-    justify-content: space-between;
-}
-
-#social_media .text {
-    display: flex;
-    width: 150px;
-    align-items: center;
-}
-
-#social_media img {
-    width: 90px;
-    height: 80px;
-}
-
-#social_media img:hover {
-    transform: scale(1.2);
-}
-
 #inputs {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
-    gap: 20px;
+    gap: 25px;
 }
 
 .input-box label {
     font-size: 16px;
-    color: var(--color-dark-50);
+    color: var(--color-dark-100);
+    font-weight: bold;
 }
 
 .input-field {
@@ -186,12 +159,14 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 30vh;
-    max-width: 620px;
-    text-align: center;
+    height: 50vh;
+    max-width: 720px;
     display: grid;
-    place-items: center;
     position: relative;
+}
+
+.modal-container-list>h1 {
+    place-self: center;
 }
 
 .modal-container-numbers {
@@ -207,7 +182,7 @@
 
 .close-btn-list, .close-btn-numbers {
     position: absolute;
-    top: 1rem;
+    top: 1%;
     right: 1rem;
     font-size: 2rem;
     background: transparent;
@@ -215,6 +190,10 @@
     color: hsl(360, 67%, 44%);
     cursor: pointer;
     transform: all 0.3s linear;
+}
+
+.close-btn-list {
+    top: 1px;
 }
 
 .close-btn-list:hover, .close-btn-list:hover {
@@ -237,13 +216,6 @@
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    margin-top: 0;
-    font-size: 24px;
-    text-align: center;
-    color: #333;
 }
 
 .numbers {
@@ -278,4 +250,46 @@ h2 {
 .selecionado {
     background-color: #28a754 !important;
     color: #fff;
+}
+
+/* List bet */
+
+#dados {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 1%;
+}
+
+.apostador {
+    margin-bottom: 20px;
+}
+
+.nome {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cpf {
+    color: #666;
+    margin-bottom: 1px;
+}
+
+.aposta {
+    margin-left: 15px;
+    margin-bottom: 20px;
+    border-left: 3px solid #007bff; /*Cor da borda para destacar a aposta */
+    padding-left: 10px;
+}
+
+.registro {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.numeros {
+    color: #28a745;
 }
