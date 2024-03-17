@@ -1,0 +1,24 @@
+{
+  "036.202.140-69": {
+    "nome": "Yan Eduardo Andreatta De Lima",
+    "cpf": "036.202.140-69",
+    "apostas": [
+      { "numeros": [12, 30, 46, 21, 36], "registro": 1000 },
+      { "numeros": [9, 12, 25, 17, 17], "registro": 1001 },
+      { "numeros": [44, 7, 47, 46, 30], "registro": 1002 },
+      { "numeros": [12, 50, 14, 18, 39], "registro": 1003 },
+      { "numeros": [7, 16, 25, 24, 14], "registro": 1004 },
+      { "numeros": [1, 11, 21, 31, 41], "registro": 1008 },
+      { "numeros": [21, 12, 49, 44, 26], "registro": 1009 }
+    ]
+  },
+  "652.950.710-81": {
+    "nome": "joao ",
+    "cpf": "652.950.710-81",
+    "apostas": [
+      { "numeros": [7, 22, 28, 18, 42], "registro": 1005 },
+      { "numeros": [3, 10, 12, 43, 9], "registro": 1006 },
+      { "numeros": [50, 36, 7, 2, 14], "registro": 1007 }
+    ]
+  }
+}

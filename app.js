@@ -2,6 +2,7 @@ import  ValidaFormulario from "./valida-campos.js";
 import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
 import removeNumbers from "./remove-numbers.js";
 import exibirDados from "./exibir-dados.js";
+import sorteio from "./sorteio.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -80,4 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         removeNumbers();
     });
 });
+
+console.log(sorteio());
 
