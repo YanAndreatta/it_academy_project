@@ -44,6 +44,17 @@ export function generateNumbers() {
     }
 }
 
+function obterRegistroApostas() {
+    let registro = localStorage.getItem('registroApostas');
+    if (!registro) {
+        registro = 1000;
+        localStorage.setItem('registroApostas', registro);
+    }
+
+    return parseInt(registro);
+}
+
+
 // Salva as apostas 
 export function salvarAposta() {
     const nome = document.getElementById('name').value;
@@ -54,9 +65,9 @@ export function salvarAposta() {
         return;
     }
 
-    const novaAposta = { numeros: [...numerosSelecionados] };
+    const novaAposta = { numeros: [...numerosSelecionados], registro: obterRegistroApostas() };
     const apostadores = JSON.parse(localStorage.getItem('apostadores') || "{}");
-        
+
     // Verifica se o apostador já existe
     if (apostadores[cpf]) {
         apostadores[cpf].apostas.push(novaAposta);
@@ -64,12 +75,17 @@ export function salvarAposta() {
         apostadores[cpf] = { nome, cpf, apostas: [novaAposta] };
     }
     
+    // inclui o registro para a próxima aposta
+    localStorage.setItem('registroApostas', novaAposta.registro + 1);
+
     // Salva os dados atualizados no LocalStorage
     localStorage.setItem('apostadores', JSON.stringify(apostadores));
     alert(`Aposta salva para o apostador ${nome} ${numerosSelecionados}`);
     
     // Limpar dados para nova aposta
     numerosSelecionados = [];
-    document.querySelectorAll('.number.selecionado').forEach(numero => numero.classList.remove("selecionado"));
+    document.querySelectorAll('.number.selecionado').forEach(numero => {
+        numero.classList.remove("selecionado")
+    });
 }
 
