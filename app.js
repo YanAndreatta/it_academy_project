@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const surpriseBtnNumersBet = document.querySelector(".surprise-btn");
     
     // Seleciona as modais
-    const modalOverlayConfirm = document.querySelector(".modal-overlay-confirm");
     const modalOverlayList = document.querySelector(".modal-overlay-list");
     const modalOverlayNumber = document.querySelector(".modal-overlay-numbers");
     
     // Seleciona o button de fechar modal
-    const closeBtnConfirm = document.querySelector(".close-btn-confirm");
     const closeBtnList = document.querySelector(".close-btn-list");
     const closeBtnNumbers = document.querySelector(".close-btn-numbers");
     
@@ -58,10 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // **** Botões para fechar o modal ****
-    closeBtnConfirm.addEventListener("click", (e) => {
-        e.preventDefault();
-        modalOverlayConfirm.classList.remove("open-modal");
-    });
+
+
     closeBtnList.addEventListener("click", (e) => {
         e.preventDefault();
         modalOverlayList.classList.remove("open-modal");

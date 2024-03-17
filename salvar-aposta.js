@@ -22,10 +22,12 @@ function marcaNumero(numeroDiv) {
 
 // gera números aleatórios
 export function NumeroRandom() {
+    numerosSelecionados = [];
     for (let i = 1; i <= 5; i++) {
         const random = Math.floor(Math.random() * 50) + 1 ;
         numerosSelecionados.push(random);
     }
+
 }
 
 // Gera os números
