@@ -2,23 +2,23 @@ import ValidaFormulario from "./valida-campos.js";
 
 const numerosContainer = document.getElementById("numbers");
 let numerosSelecionados = [];
-let apostador = null;
 
 // Marca número selecionado e armazena
-function marcaNumero() {
-    const numero = parseInt(this.textContent);
+function marcaNumero(numeroDiv) {
+    const numero = parseInt(numeroDiv.textContent);
 
     if(numerosSelecionados.includes(numero)) {
         numerosSelecionados = numerosSelecionados.filter(num => num !== numero);
-        this.classList.remove("selecionado");
+        numeroDiv.classList.remove("selecionado");
     } else {
         if (numerosSelecionados.length < 5) {
             numerosSelecionados.push(numero);
-            this.classList.add("selecionado");
+            numeroDiv.classList.add("selecionado");
         }
     }
 }
 
+// Gera os números
 export function generateNumbers() {
 
     for(let i = 1; i <= 50; i++) {
@@ -26,7 +26,9 @@ export function generateNumbers() {
         numeroDiv.textContent = i;
         numeroDiv.classList.add("number");
         numerosContainer.appendChild(numeroDiv);
-        numeroDiv.addEventListener('click', marcaNumero);
+        numeroDiv.addEventListener('click', () => {
+            marcaNumero(numeroDiv)
+        });
     }
 }
 
@@ -38,7 +40,7 @@ export function salvarAposta() {
         alert("Selecione exatamente 5 números para salvar a aposta");
         return false;
     }
-    
+
     const novaAposta = { numeros: [...numerosSelecionados] };
     const apostadores = JSON.parse(localStorage.getItem('apostadores') || "{}");
         
@@ -55,6 +57,6 @@ export function salvarAposta() {
     
     // Limpar dados para nova aposta
     numerosSelecionados = [];
-    document.querySelectorAll('.numero.selecionado').forEach(numero => numero.classList.remove("selecionado"));
+    document.querySelectorAll('.number.selecionado').forEach(numero => numero.classList.remove("selecionado"));
 }
 
