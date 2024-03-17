@@ -14,7 +14,17 @@ function marcaNumero(numeroDiv) {
         if (numerosSelecionados.length < 5) {
             numerosSelecionados.push(numero);
             numeroDiv.classList.add("selecionado");
+        } else {
+            alert("Aposta máxima de 5 números");
         }
+    }
+}
+
+// gera números aleatórios
+export function NumeroRandom() {
+    for (let i = 1; i <= 5; i++) {
+        const random = Math.floor(Math.random() * 50) + 1 ;
+        numerosSelecionados.push(random);
     }
 }
 
@@ -32,13 +42,14 @@ export function generateNumbers() {
     }
 }
 
+// Salva as apostas 
 export function salvarAposta() {
     const nome = document.getElementById('name').value;
     const cpf = document.getElementById('cpf').value;
 
     if (numerosSelecionados.length !== 5) {
         alert("Selecione exatamente 5 números para salvar a aposta");
-        return false;
+        return;
     }
 
     const novaAposta = { numeros: [...numerosSelecionados] };
@@ -53,7 +64,7 @@ export function salvarAposta() {
     
     // Salva os dados atualizados no LocalStorage
     localStorage.setItem('apostadores', JSON.stringify(apostadores));
-    console.log("Aposta salva para o apostador", nome + ":", numerosSelecionados);
+    alert(`Aposta salva para o apostador ${nome} ${numerosSelecionados}`);
     
     // Limpar dados para nova aposta
     numerosSelecionados = [];

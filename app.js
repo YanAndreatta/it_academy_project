@@ -1,5 +1,5 @@
 import  ValidaFormulario from "./valida-campos.js";
-import { salvarAposta, generateNumbers } from "./salvar-aposta.js";
+import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
 import removeNumbers from "./remove-numbers.js";
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,14 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Verifica se o botão 'registrar números' da modal NÚMEROS DA SORTE foi apertado 
     registerBtnNumbersBet.addEventListener("click", () => {
-        if(salvarAposta){
-            salvarAposta();
-        }
+        salvarAposta();
     });
     
     // Verifica se o botão 'surpresinha' da modal NÚMEROS DA SORTE foi apertado
     surpriseBtnNumersBet.addEventListener("click", () => {
-        
+        NumeroRandom();
+        salvarAposta();
     });
     
     // **** Botões para fechar o modal ****
