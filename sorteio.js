@@ -5,7 +5,8 @@ export default function sorteio() {
     const todosVencedores = [];
 
     for (let i = 0; i <= 25; i++) {
-        const numbersBet = NumeroRandom();
+        // const numbersBet = NumeroRandom();
+        const numbersBet = [33, 40, 24, 2, 27];
         const sorteados = [...numbersBet];
         todosSorteados.push(sorteados);
 
@@ -26,7 +27,8 @@ export default function sorteio() {
                         todosVencedores.push({
                             nome: apostador.nome,
                             numerosAposta: ArrayNumeros,
-                            registro: apostador.apostas[i].registro
+                            registro: apostador.apostas[i].registro,
+                            cpf: apostador.cpf
                         });
                     }
                 }

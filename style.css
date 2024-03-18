@@ -134,6 +134,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-bottom: 10px;
+    
 }
 
 .modal-overlay-list, .modal-overlay-numbers, .modal-overlay-finish {
@@ -159,9 +160,11 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 50vh;
+    height: 65vh;
     max-width: 720px;
+    text-align: center;
     display: grid;
+    place-items: center;
     position: relative;
 }
 
@@ -175,7 +178,7 @@
     position: relative;
 }
 
-.modal-container-list>h1 {
+.modal-container-list>h1, .modal-container-finish>h1 {
     place-self: center;
 }
 

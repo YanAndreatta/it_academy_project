@@ -1,7 +1,7 @@
 import  ValidaFormulario from "./valida-campos.js";
 import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
 import removeNumbers from "./remove-numbers.js";
-import exibirDados from "./exibir-dados.js";
+import exibirDadosList, { exibirDadosApuracao } from "./exibir-dados.js";
 import sorteio from "./sorteio.js";
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,16 +18,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Seleciona as modais
     const modalOverlayList = document.querySelector(".modal-overlay-list");
     const modalOverlayNumber = document.querySelector(".modal-overlay-numbers");
+    const modalOverlayFinish = document.querySelector(".modal-overlay-finish");
     
     // Seleciona o button de fechar modal
     const closeBtnList = document.querySelector(".close-btn-list");
     const closeBtnNumbers = document.querySelector(".close-btn-numbers");
+    const closeBtnFinish = document.querySelector(".close-btn-finish");
     
     // *********************************************************************
     
     // Verifica se o botão "Registrar aposta" foi apertado
-    modalBtnRegister.addEventListener("click", () => {
-        console.log(sorteio);
+    modalBtnRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        if(confirm("Confirma para finalizar fase de apostas")) {
+            modalOverlayFinish.classList.add("open-modal");
+            // console.log(sorteio());
+            exibirDadosApuracao(sorteio());
+        }
     });
     
     // Verifica se o botão "Lista apostas" foi apertado
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(dadosaArmazenados) {
             modalOverlayList.classList.add("open-modal");
             let dados = JSON.parse(dadosaArmazenados);
-            exibirDados(dados); 
+            exibirDadosList(dados); 
         } else {
             alert('Não existem apostas');
         }
@@ -79,6 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // remove os números da cartela quando o modal é fechado
         removeNumbers();
+    });
+
+    closeBtnFinish.addEventListener("click", (e) => {
+        e.preventDefault();
+        modalOverlayFinish.classList.remove("open-modal");
     });
 });
 

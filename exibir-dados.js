@@ -1,4 +1,4 @@
-export default function exibirDados(dados) {
+export default function exibirDadosList(dados) {
     let divDados = document.querySelector('.dados');
     let html = '';
 
@@ -21,4 +21,14 @@ for(let cpf in dados) {
     }
 
     divDados.innerHTML = html;
+}
+
+export function exibirDadosApuracao(dados) {
+    // Lista números sorteados
+    // Quantas rodadas de sorteio foram realizadas
+    // A quantidade de apostas vencedoras
+    // A Lista de apostas vencedoras (Ordenada alfabeticamente) ou mensagem de que não houve vencedores
+    // Lista com todos os números apostados, considerando todas as apostas, ordenada do número mais escolhido ao menos escolhido.
+
+    return console.log(dados);
 }
