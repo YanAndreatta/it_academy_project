@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Verifica se o botão "Registrar aposta" foi apertado
     modalBtnRegister.addEventListener("click", () => {
-        modalOverlayConfirm.classList.add("open-modal");
+        console.log(sorteio);
     });
     
     // Verifica se o botão "Lista apostas" foi apertado
@@ -82,5 +82,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-console.log(sorteio());
+//console.log(sorteio());
 

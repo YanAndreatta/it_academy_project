@@ -136,7 +136,7 @@
     margin-bottom: 10px;
 }
 
-.modal-overlay-list, .modal-overlay-numbers {
+.modal-overlay-list, .modal-overlay-numbers, .modal-overlay-finish {
     position: fixed;
     top: 0;
     left: 0;
@@ -153,6 +153,16 @@
 .open-modal {
     visibility: visible;
     z-index: 10;
+}
+
+.modal-container-finish {
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 90vw;
+    height: 50vh;
+    max-width: 720px;
+    display: grid;
+    position: relative;
 }
 
 .modal-container-list {
@@ -180,7 +190,7 @@
     position: relative;
 }
 
-.close-btn-list, .close-btn-numbers {
+.close-btn-list, .close-btn-numbers, .close-btn-finish {
     position: absolute;
     top: 1%;
     right: 1rem;

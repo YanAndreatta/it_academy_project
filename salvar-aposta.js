@@ -1,5 +1,3 @@
-import ValidaFormulario from "./valida-campos.js";
-
 const numerosContainer = document.getElementById("numbers");
 let numerosSelecionados = [];
 
@@ -22,7 +20,7 @@ function marcaNumero(numeroDiv) {
 
 // gera números aleatórios
 export function NumeroRandom() {
-    let numerosSelecionados = [];
+    numerosSelecionados = [];
     while (numerosSelecionados.length < 5) {
         const random = Math.floor(Math.random() * 50) + 1;
         if (!numerosSelecionados.includes(random)) {
