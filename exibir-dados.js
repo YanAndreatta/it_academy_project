@@ -23,12 +23,87 @@ for(let cpf in dados) {
     divDados.innerHTML = html;
 }
 
-export function exibirDadosApuracao(dados) {
-    // Lista números sorteados
-    // Quantas rodadas de sorteio foram realizadas
-    // A quantidade de apostas vencedoras
-    // A Lista de apostas vencedoras (Ordenada alfabeticamente) ou mensagem de que não houve vencedores
-    // Lista com todos os números apostados, considerando todas as apostas, ordenada do número mais escolhido ao menos escolhido.
+export function exibirDadosApuracao(dadosSorteio, dadosGeral) {
+  let divDados = document.querySelector(".apuracao");
+  let dados = JSON.parse(dadosGeral);
+  let cont = 0;
+  let html = "";
 
-    return console.log(dados);
+// Lista Numeros sorteados
+dadosSorteio.todosSorteados.forEach(numerosSorteados => {
+    html += '<div class="aposta">';
+    html += '<p><span>Lista números sorteados</span></p>';
+    html += '<p><span class="numeros">Números:</span> ' + numerosSorteados.join(", ") + "</p>";
+    html += '</div>'
+});
+
+// Quantas rodadas de sorteio foram realizadas
+html += '<div class="rodadas">';
+html += `<p>Quantidade de rodadas</p>`;
+html += `<p><span>${dadosSorteio.cont}</span></p>`;
+html += "</div>";
+
+// Quantidade de apostas vencedoras
+for(let betsWin in dadosSorteio.vencedores) {
+    cont++;
+}
+html += '<div class="rodadas">';
+html += '<p> Quantidade de apostas vencedoras</p>'
+html += `<p><span>${cont}</span></p>`;
+html += "</div>";
+
+// Lista de apostas vencedoras
+for(let cpf in dadosSorteio.vencedores) {
+    let vencedores = dadosSorteio.vencedores[cpf];
+
+    html += '<div class="apostador">';
+    html += '<p class="nome">' + vencedores.nome + "</p>";
+
+    html += '<div class="aposta">';
+    html += '<p><span class="numeros">Números:</span> ' + vencedores.numerosAposta.join(", ") + "</p>";
+    html += "</div>";
+    html += "</div>";
+  }
+//   html += "</div>";
+
+// Lista com todos os números apostados, considerando todas as apostas, ordenada do número mais escolhido ao menos escolhido.
+
+// Objeto para armazenar contagem de apostas por número
+const numerosApostados = [];
+
+// Itera sobre todas as apostas
+for (let cpf in dados) {
+    let apostador = dados[cpf];
+    apostador.apostas.forEach(aposta => {
+        aposta.numeros.forEach(numero => {
+            // Procura se o número já existe no array de contagem
+            const index = numerosApostados.findIndex(item => item.numero === numero);
+            if (index !== -1) {
+                // Incrementa a contagem de apostas para o número existente no array
+                numerosApostados[index].quantidade++;
+            } else {
+                // Adiciona o número ao array de contagem com a quantidade inicializada em 1
+                numerosApostados.push({ numero, quantidade: 1 });
+            }
+        });
+    });
+}
+
+// Ordena o array com base na quantidade de apostas (do maior para o menor)
+numerosApostados.sort((a, b) => b.quantidade - a.quantidade);
+
+// Exibe a lista ordenada
+html += '<div class="apostas-quantidade">';   
+numerosApostados.forEach(item => {
+    html += '<div class="numero-apostado">';
+    html += '<p><span class="numeros">Número apostado:</span> ' + item.numero + "</p>";
+    html += '</div>'
+    html += '<div class="quantidade-apostado">';
+    html += '<p><span class="numeros">Quantidade de vezes apostado:</span> ' + item.quantidade + "</p>";
+    html += '</div>'
+});
+   html += '</div>'
+
+
+  divDados.innerHTML = html;
 }

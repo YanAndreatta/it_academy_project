@@ -3,10 +3,12 @@ import { NumeroRandom } from "./salvar-aposta.js";
 export default function sorteio() {
     const todosSorteados = [];
     const todosVencedores = [];
+    let cont = 0;
 
     for (let i = 0; i <= 25; i++) {
+        cont++;
+        const numbersBet = [1, 11, 21, 31, 41];
         // const numbersBet = NumeroRandom();
-        const numbersBet = [33, 40, 24, 2, 27];
         const sorteados = [...numbersBet];
         todosSorteados.push(sorteados);
 
@@ -26,19 +28,20 @@ export default function sorteio() {
                     if (!todosVencedores.map(vencedor => vencedor.registro).includes(registro)) {
                         todosVencedores.push({
                             nome: apostador.nome,
+                            cpf: apostador.cpf,
                             numerosAposta: ArrayNumeros,
-                            registro: apostador.apostas[i].registro,
-                            cpf: apostador.cpf
+                            registro: apostador.apostas[i].registro
                         });
                     }
                 }
 
             }
         }
-        // vencedores.sort((a, b) => a.nome.localeCompare(b.nome));
+
+        todosVencedores.sort((a, b) => a.nome.localeCompare(b.nome));
 
         if (todosVencedores.length > 0) {
-            return { vencedores: todosVencedores, todosSorteados };
+            return { vencedores: todosVencedores, todosSorteados, cont };
         } else {
             return "Não houve ganhadores";
         }

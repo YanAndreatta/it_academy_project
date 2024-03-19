@@ -77,15 +77,11 @@
 .input-field {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     padding: 3px;
     cursor: text;
     border-bottom: 1px solid var(--color-purple-50);
-}
-
-.input-field i {
-    font-size: 18px;
-    color: var(--color-dark-900);
 }
 
 .input-field input {
@@ -137,6 +133,10 @@
     
 }
 
+.btn-resgate-container {
+    display: grid;
+}
+
 .modal-overlay-list, .modal-overlay-numbers, .modal-overlay-finish {
     position: fixed;
     top: 0;
@@ -162,9 +162,9 @@
     width: 90vw;
     height: 65vh;
     max-width: 720px;
-    text-align: center;
+    /* text-align: center; */
     display: grid;
-    place-items: center;
+    /* place-items: center; */
     position: relative;
 }
 
@@ -172,7 +172,7 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 50vh;
+    height: 70vh;
     max-width: 720px;
     display: grid;
     position: relative;
@@ -214,10 +214,73 @@
     transform: scale(1.3s);
 }
 
-
 .error-text {
     font-size: 10px;
     color: red;
+}
+
+
+/* Apuração */
+
+.apuracao {
+    display: grid;
+    justify-content: center;
+    gap: 5x;
+}
+
+.rodadas {
+    display: grid;
+    /* justify-content: left; */
+    text-align: center;
+}
+
+.aposta {
+    display: grid;
+    text-align: center;
+}
+
+.apostador {
+    display: grid;
+    text-align: left;
+}
+
+/* .apostas-quantidade {
+    display: grid;
+} */
+
+/* 
+.numero-apostado {
+    display: grid;
+} */
+
+/* .quantidade-apostado {
+    display: grid;
+} */
+
+.apostas-quantidade {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+}
+
+.aposta {
+    display: flex;
+    margin-right: 20px; /* Espaço entre as apostas */
+}
+
+.numero-apostado,
+.quantidade-apostado {
+    margin-right: 10px; /* Espaço entre os elementos dentro de uma aposta */
+}
+
+/* Estilos opcionais */
+.numero-apostado p,
+.quantidade-apostado p {
+    margin: 0; /* Remova a margem padrão dos parágrafos */
+}
+
+.numeros {
+    font-weight: bold;
 }
 
 /* cartela */
@@ -268,7 +331,7 @@
 /* List bet */
 
 #dados {
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 20px;

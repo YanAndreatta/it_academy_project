@@ -30,11 +30,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Verifica se o botão "Registrar aposta" foi apertado
     modalBtnRegister.addEventListener("click", (e) => {
         e.preventDefault();
-        if(confirm("Confirma para finalizar fase de apostas")) {
-            modalOverlayFinish.classList.add("open-modal");
-            // console.log(sorteio());
-            exibirDadosApuracao(sorteio());
+        let dadosaArmazenados = localStorage.getItem('apostadores');
+
+        if(dadosaArmazenados) {
+            if(confirm("Confirma para finalizar fase de apostas")) {
+                modalOverlayFinish.classList.add("open-modal");
+                exibirDadosApuracao(sorteio(), dadosaArmazenados);
+            }
+        } else {
+            alert('Não existem apostas');
         }
+
     });
     
     // Verifica se o botão "Lista apostas" foi apertado

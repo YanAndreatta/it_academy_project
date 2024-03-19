@@ -58,10 +58,11 @@ export default class ValidaFormulario {
     }
 
     createError(campo, msg) {
-        const div = document.createElement('div');
+        const teste = campo.parentNode;
+        const div = document.createElement('span');
         div.innerHTML = msg;
         div.classList.add('error-text');
-        campo.insertAdjacentElement('afterend', div);
+        teste.insertAdjacentElement('afterend', div);
     }
 
 }
