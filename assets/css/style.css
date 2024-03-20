@@ -134,7 +134,9 @@
 }
 
 .btn-resgate-container {
-    display: grid;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
 }
 
 .modal-overlay-list, .modal-overlay-numbers, .modal-overlay-finish {
@@ -160,11 +162,9 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 65vh;
+    height: 70vh;
     max-width: 720px;
-    /* text-align: center; */
     display: grid;
-    /* place-items: center; */
     position: relative;
 }
 
@@ -228,34 +228,31 @@
     gap: 5x;
 }
 
-.rodadas {
-    display: grid;
-    /* justify-content: left; */
-    text-align: center;
+.aposta-apuracao {
+    padding: 10px;
 }
 
-.aposta {
+.rodadas {
     display: grid;
     text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .apostador {
     display: grid;
     text-align: left;
+    padding-top: 10px;
 }
 
-/* .apostas-quantidade {
-    display: grid;
-} */
-
-/* 
-.numero-apostado {
-    display: grid;
-} */
-
-/* .quantidade-apostado {
-    display: grid;
-} */
+.apostador-nowin {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding: 30px;
+    background-color: rgba(255, 115, 0, 0.521);
+    border-radius: 3px;
+}
 
 .apostas-quantidade {
     display: flex;
@@ -270,17 +267,31 @@
 
 .numero-apostado,
 .quantidade-apostado {
-    margin-right: 10px; /* Espaço entre os elementos dentro de uma aposta */
-}
-
-/* Estilos opcionais */
-.numero-apostado p,
-.quantidade-apostado p {
-    margin: 0; /* Remova a margem padrão dos parágrafos */
+    margin-right: 30px; /* Espaço entre os elementos dentro de uma aposta */
+    padding-left: 20px;
 }
 
 .numeros {
     font-weight: bold;
+}
+
+.numeros-txt {
+   padding-left: 45px; 
+   padding-bottom: 10px;
+   padding-top: 20px;
+}
+.quantidade-txt {
+    padding-left: 120px; 
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.nome-apuracao {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-style: bold;
+    padding-top: 10px;
 }
 
 /* cartela */
@@ -339,10 +350,6 @@
     border-radius: 1%;
 }
 
-.apostador {
-    margin-bottom: 20px;
-}
-
 .nome {
     font-weight: bold;
     color: #333;
@@ -356,7 +363,7 @@
 
 .aposta {
     margin-left: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-left: 3px solid #007bff; /*Cor da borda para destacar a aposta */
     padding-left: 10px;
 }
@@ -368,4 +375,5 @@
 
 .numeros {
     color: #28a745;
+    padding-left: 10px;
 }

@@ -5,10 +5,10 @@ export default function sorteio() {
     const todosVencedores = [];
     let cont = 0;
 
-    for (let i = 0; i <= 25; i++) {
+    for (let i = 0; i < 25; i++) {
         cont++;
-        const numbersBet = [1, 11, 21, 31, 41];
-        // const numbersBet = NumeroRandom();
+        // const numbersBet = [1, 11, 21, 31, 41];
+        const numbersBet = NumeroRandom();
         const sorteados = [...numbersBet];
         todosSorteados.push(sorteados);
 
@@ -40,10 +40,10 @@ export default function sorteio() {
 
         todosVencedores.sort((a, b) => a.nome.localeCompare(b.nome));
 
-        if (todosVencedores.length > 0) {
-            return { vencedores: todosVencedores, todosSorteados, cont };
-        } else {
-            return "Não houve ganhadores";
-        }
+    }
+    if (todosVencedores.length > 0) {
+        return { vencedores: todosVencedores, todosSorteados, cont };
+    } else {
+        return { todosSorteados, cont};
     }
 }

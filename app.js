@@ -1,8 +1,8 @@
-import  ValidaFormulario from "./valida-campos.js";
-import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
-import removeNumbers from "./remove-numbers.js";
-import exibirDadosList, { exibirDadosApuracao } from "./exibir-dados.js";
-import sorteio from "./sorteio.js";
+import  ValidaFormulario from "./src/valida-campos.js";
+import { salvarAposta, generateNumbers, NumeroRandom } from "./src/salvar-aposta.js";
+import removeNumbers from "./src/remove-numbers.js";
+import exibirDadosList, { exibirDadosApuracao } from "./src/exibir-dados.js";
+import sorteio from "./src/sorteio.js";
 
 document.addEventListener('DOMContentLoaded', function() {
     

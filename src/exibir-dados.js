@@ -1,3 +1,4 @@
+// ****** exibe dados da lista de apostas ******
 export default function exibirDadosList(dados) {
     let divDados = document.querySelector('.dados');
     let html = '';
@@ -23,6 +24,7 @@ for(let cpf in dados) {
     divDados.innerHTML = html;
 }
 
+// ****** Exibe dados da Apuracao ******
 export function exibirDadosApuracao(dadosSorteio, dadosGeral) {
   let divDados = document.querySelector(".apuracao");
   let dados = JSON.parse(dadosGeral);
@@ -30,9 +32,9 @@ export function exibirDadosApuracao(dadosSorteio, dadosGeral) {
   let html = "";
 
 // Lista Numeros sorteados
+html += '<p><span>Lista números sorteados</span></p>';
 dadosSorteio.todosSorteados.forEach(numerosSorteados => {
-    html += '<div class="aposta">';
-    html += '<p><span>Lista números sorteados</span></p>';
+    html += '<div class="aposta-apuracao">';
     html += '<p><span class="numeros">Números:</span> ' + numerosSorteados.join(", ") + "</p>";
     html += '</div>'
 });
@@ -52,7 +54,17 @@ html += '<p> Quantidade de apostas vencedoras</p>'
 html += `<p><span>${cont}</span></p>`;
 html += "</div>";
 
+// Caso não tenha vencedores
+if(!dadosSorteio.vencedores) {
+    html += '<div class="apostador-nowin">';
+    html += '<p class="nome">Não houve vencedores</p>';
+    html += "</div>";
+}
+
 // Lista de apostas vencedoras
+if(dadosSorteio.vencedores){
+    html += '<p class="nome-apuracao">Vencedores</p>';
+}
 for(let cpf in dadosSorteio.vencedores) {
     let vencedores = dadosSorteio.vencedores[cpf];
 
@@ -64,11 +76,8 @@ for(let cpf in dadosSorteio.vencedores) {
     html += "</div>";
     html += "</div>";
   }
-//   html += "</div>";
 
 // Lista com todos os números apostados, considerando todas as apostas, ordenada do número mais escolhido ao menos escolhido.
-
-// Objeto para armazenar contagem de apostas por número
 const numerosApostados = [];
 
 // Itera sobre todas as apostas
@@ -92,6 +101,11 @@ for (let cpf in dados) {
 // Ordena o array com base na quantidade de apostas (do maior para o menor)
 numerosApostados.sort((a, b) => b.quantidade - a.quantidade);
 
+html += '<div class= "apostas-quantidade">';
+html += '<div class="numeros-txt">Nr apostado</div>';  
+html += '<div class="quantidade-txt">Qtd de apostas</div>';
+html += '</div>'
+
 // Exibe a lista ordenada
 html += '<div class="apostas-quantidade">';   
 numerosApostados.forEach(item => {
@@ -99,7 +113,7 @@ numerosApostados.forEach(item => {
     html += '<p><span class="numeros">Número apostado:</span> ' + item.numero + "</p>";
     html += '</div>'
     html += '<div class="quantidade-apostado">';
-    html += '<p><span class="numeros">Quantidade de vezes apostado:</span> ' + item.quantidade + "</p>";
+    html += '<p><span class="numeros">Qtd vezes apostado:</span> ' + item.quantidade + "</p>";
     html += '</div>'
 });
    html += '</div>'
