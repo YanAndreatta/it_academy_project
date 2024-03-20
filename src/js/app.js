@@ -3,6 +3,8 @@ import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js"
 import removeNumbers from "./remove-numbers.js";
 import exibirDadosList, { exibirDadosApuracao } from "./exibir-dados.js";
 import sorteio from "./sorteio.js";
+import premiacao from "./premiacao.js";
+import irParaOutraPagina from "./change-page.js";
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -29,15 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // *********************************************************************
     
-    // Verifica se o botão "Registrar aposta" foi apertado
+    // Verifica se o botão "Finalizar apostas" foi apertado
     modalBtnRegister.addEventListener("click", (e) => {
         e.preventDefault();
         let dadosaArmazenados = localStorage.getItem('apostadores');
-
         if(dadosaArmazenados) {
             if(confirm("Confirma para finalizar fase de apostas")) {
                 modalOverlayFinish.classList.add("open-modal");
                 exibirDadosApuracao(sorteio(), dadosaArmazenados);
+                // premiacao();
             }
         } else {
             alert('Não existem apostas');
@@ -83,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Verifica se o botão 'resgatar prêmio' da modal FINALIZAR APOSTAS foi apertado
     resgateBtn.addEventListener("click", () => {
-        // premiacao();
-        salvarAposta();
-
+        irParaOutraPagina("/html/end/end.html");
     });
 
     

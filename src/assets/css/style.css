@@ -377,3 +377,16 @@
     color: #28a745;
     padding-left: 10px;
 }
+
+/* premiação */
+
+.numero-mais-sorteado-container {
+    display: grid;
+    text-align: center;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+.numero-mais-sorteado {
+
+}

@@ -119,5 +119,7 @@ numerosApostados.forEach(item => {
    html += '</div>'
 
 
+   localStorage.setItem('numerosApostados', JSON.stringify(numerosApostados));
+   localStorage.setItem('vencedores', JSON.stringify(dadosSorteio.vencedores));
   divDados.innerHTML = html;
 }
