@@ -1,8 +1,9 @@
-import  ValidaFormulario from "./src/valida-campos.js";
-import { salvarAposta, generateNumbers, NumeroRandom } from "./src/salvar-aposta.js";
-import removeNumbers from "./src/remove-numbers.js";
-import exibirDadosList, { exibirDadosApuracao } from "./src/exibir-dados.js";
-import sorteio from "./src/sorteio.js";
+import  ValidaFormulario from "./valida-campos.js";
+import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
+import removeNumbers from "./remove-numbers.js";
+import exibirDadosList, { exibirDadosApuracao } from "./exibir-dados.js";
+import sorteio from "./sorteio.js";
+
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Seleciona os buttons das modais
     const registerBtnNumbersBet = document.querySelector(".register-numbers"); 
     const surpriseBtnNumersBet = document.querySelector(".surprise-btn");
+    const resgateBtn = document.querySelector(".resgate-btn");
     
     // Seleciona as modais
     const modalOverlayList = document.querySelector(".modal-overlay-list");
@@ -79,6 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
         salvarAposta();
     });
 
+    // Verifica se o botão 'resgatar prêmio' da modal FINALIZAR APOSTAS foi apertado
+    resgateBtn.addEventListener("click", () => {
+        // premiacao();
+        salvarAposta();
+
+    });
+
     
     // **** Botões para fechar o modal ****
     closeBtnList.addEventListener("click", (e) => {
@@ -93,12 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // remove os números da cartela quando o modal é fechado
         removeNumbers();
     });
-
-    closeBtnFinish.addEventListener("click", (e) => {
-        e.preventDefault();
-        modalOverlayFinish.classList.remove("open-modal");
-    });
 });
 
-//console.log(sorteio());
 
