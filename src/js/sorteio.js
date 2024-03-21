@@ -8,8 +8,7 @@ export default function sorteio() {
 
     for (let i = 0; i < 25; i++) {
         cont++;
-        const numbersBet = [1, 11, 21, 31, 41];
-        // const numbersBet = NumeroRandom();
+        const numbersBet = NumeroRandom();
         const sorteados = [...numbersBet];
         todosSorteados.push(sorteados);
 
