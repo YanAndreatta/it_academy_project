@@ -162,7 +162,7 @@
     background: #fff;
     border-radius: 0.5rem;
     width: 90vw;
-    height: 70vh;
+    height: 50vh;
     max-width: 720px;
     display: grid;
     position: relative;
@@ -171,8 +171,8 @@
 .modal-container-list {
     background: #fff;
     border-radius: 0.5rem;
-    width: 90vw;
-    height: 70vh;
+    width: 50vw;
+    height: 50vh;
     max-width: 720px;
     display: grid;
     position: relative;
@@ -383,10 +383,15 @@
 .numero-mais-sorteado-container {
     display: grid;
     text-align: center;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-bottom: 10px;
 }
 
 .numero-mais-sorteado {
+    justify-content: center;
+}
 
+.numero-mais-sorteado-txt  {
+    font-size: 18px;
+    font-weight: bold;
 }

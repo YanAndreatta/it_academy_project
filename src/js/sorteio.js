@@ -4,6 +4,7 @@ export default function sorteio() {
     const todosSorteados = [];
     const todosVencedores = [];
     let cont = 0;
+    let vencedorEncontrado = false;
 
     for (let i = 0; i < 25; i++) {
         cont++;
@@ -32,6 +33,7 @@ export default function sorteio() {
                             numerosAposta: ArrayNumeros,
                             registro: apostador.apostas[i].registro
                         });
+                        vencedorEncontrado = true;
                     }
                 }
 
@@ -39,6 +41,8 @@ export default function sorteio() {
         }
 
         todosVencedores.sort((a, b) => a.nome.localeCompare(b.nome));
+
+        if(vencedorEncontrado) break;
 
     }
     if (todosVencedores.length > 0) {

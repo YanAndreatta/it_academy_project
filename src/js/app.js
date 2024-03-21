@@ -1,7 +1,7 @@
 import  ValidaFormulario from "./valida-campos.js";
 import { salvarAposta, generateNumbers, NumeroRandom } from "./salvar-aposta.js";
 import removeNumbers from "./remove-numbers.js";
-import exibirDadosList, { exibirDadosApuracao } from "./exibir-dados.js";
+import exibirDadosList, { exibirDadosApuracao, trocaButton } from "./exibir-dados.js";
 import sorteio from "./sorteio.js";
 import premiacao from "./premiacao.js";
 import irParaOutraPagina from "./change-page.js";
@@ -27,24 +27,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Seleciona o button de fechar modal
     const closeBtnList = document.querySelector(".close-btn-list");
     const closeBtnNumbers = document.querySelector(".close-btn-numbers");
-    const closeBtnFinish = document.querySelector(".close-btn-finish");
     
     // *********************************************************************
     
     // Verifica se o botão "Finalizar apostas" foi apertado
     modalBtnRegister.addEventListener("click", (e) => {
         e.preventDefault();
+        
         let dadosaArmazenados = localStorage.getItem('apostadores');
+        
         if(dadosaArmazenados) {
             if(confirm("Confirma para finalizar fase de apostas")) {
                 modalOverlayFinish.classList.add("open-modal");
                 exibirDadosApuracao(sorteio(), dadosaArmazenados);
-                // premiacao();
             }
         } else {
             alert('Não existem apostas');
         }
 
+        trocaButton(sorteio());
     });
     
     // Verifica se o botão "Lista apostas" foi apertado
@@ -85,7 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Verifica se o botão 'resgatar prêmio' da modal FINALIZAR APOSTAS foi apertado
     resgateBtn.addEventListener("click", () => {
-        irParaOutraPagina("/html/end/end.html");
+        let vencedores = localStorage.getItem('vencedores');
+
+        if(vencedores === "undefined" || vencedores === null) {
+            irParaOutraPagina("/html/start/start.html");
+        } else {
+            irParaOutraPagina("/html/end/end.html");
+        }
+
     });
 
     

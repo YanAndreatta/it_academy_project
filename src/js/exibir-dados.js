@@ -123,3 +123,12 @@ numerosApostados.forEach(item => {
    localStorage.setItem('vencedores', JSON.stringify(dadosSorteio.vencedores));
   divDados.innerHTML = html;
 }
+
+
+export function trocaButton(dadosSorteio) {
+    const registerBtn = document.querySelector('.resgate-btn');
+
+    if(!dadosSorteio.vencedores) {
+        registerBtn.textContent = "Iniciar novo sorteio";
+    }
+}
